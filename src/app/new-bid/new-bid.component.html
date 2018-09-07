@@ -1,0 +1,29 @@
+<div class="container">
+  <form [formGroup]="form">
+    <div class="row">
+
+      <div class="form-group">
+        <label for="product">Product name</label>
+        <input name="product" placeholder="My cool product" formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="product">Duration (days)</label>
+        <input type="number" placeholder="30" formControlName="duration">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="product">URL for your image</label>
+      <input type="text" placeholder="https://www.example.com/image.jpg" formControlName="url">
+    </div>
+
+    <div class="form-group">
+      <label for="product">Owner Address</label>
+      <input placeholder="0x1234" formControlName="beneficiary">
+    </div>
+    <div class="form-group">
+      <label for="product">Description</label>
+      <textarea placeholder="The best product in world!" formControlName="description"></textarea>
+    </div>
+    <a class="btn btn-primary" (click)="save()" *ngIf="form.valid">SAVE</a>
+  </form>
+</div>

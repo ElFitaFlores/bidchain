@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="card" *ngFor="let bid of bids; let i = index">
+
+      <img class="image" [ngStyle] = "{'background-image': 'url(' + bid.url + ')'}" />
+      <div class="product-info">
+        <span class="product">{{bid.product}}</span>
+        <div class="info">
+          <div class="value-info">
+            <span class="value">{{bid.value}}</span>
+            <span class="unit">wei</span>
+          </div>
+          <div class="aditional" style="margin-top: 15px">
+            <i class="icon ion-md-contact"></i>
+            <span>{{bid.people}}</span>
+          </div>
+          <div class="aditional" style="margin-top: 5px">
+            <i class="icon ion-md-hourglass"></i>
+            <span>{{bid.left}}</span>
+          </div>
+        </div>
+        <div class="footer">
+          <input class="bid-value" type="number" placeholder="Bid now (wei)" />
+          <button *ngIf="bid.timeLeft > 0" class="btn btn-primary" (click)="makeBid(i)">BID</button>
+          <button *ngIf="bid.timeLeft <= 0" class="btn btn-error" disabled>SOLD</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
